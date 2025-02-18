@@ -6,9 +6,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
 
-import androidx.appcompat.app.AppCompatActivity;
 
-public class SplashActivity extends Activity {
+public class SplashActivity extends Activity{
     private static final int SPLASH_DURATION = 2000; // 3 seconds
 
     @Override

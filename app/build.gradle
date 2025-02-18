@@ -4,12 +4,12 @@ plugins {
 
 android {
     namespace 'com.developersunit.spot_it_hackfes2k25'
-    compileSdk 34
+    compileSdk 35
 
     defaultConfig {
         applicationId "com.developersunit.spot_it_hackfes2k25"
         minSdk 30
-        targetSdk 34
+        targetSdk 35
         versionCode 1
         versionName "1.0"
 
@@ -32,7 +32,13 @@ dependencies {
 
     implementation libs.appcompat
     implementation libs.material
+    implementation libs.core.ktx
+    implementation libs.preference
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
+    def splashScreenVersion = "1.0.0-alpha01"
+    // Use: def instead of val if you are not using Kotlin Gradle(.kts)
+
+    implementation("androidx.core:core-splashscreen:1.0.1")
 }

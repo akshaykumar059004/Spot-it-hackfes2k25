@@ -9,19 +9,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/welcome_to_spot_it"
+        android:text="@string/this_is_the_second_page"
         android:textSize="24sp"
         android:textColor="@android:color/black"
-        android:textStyle="bold"
-        android:layout_marginTop="16dp"/>
-    <Button
-        android:id="@+id/nextbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/next"/>
-    <Button
-        android:id="@+id/settingsbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/settings"/>
+        android:textStyle="bold"/>
 </LinearLayout>
