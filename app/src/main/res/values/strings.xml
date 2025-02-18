@@ -1,4 +1,7 @@
 <resources>
-    <string name="app_name">Spot-it-hackfes2k25</string>
+    <string name="app_name">Spot it</string>
     <string name="welcome_to_spot_it">Welcome to Spot it!</string>
+    <string name="this_is_the_second_page">This is the Second Page</string>
+    <string name="next">Next</string>
+    <string name="settings">Settings</string>
 </resources>
