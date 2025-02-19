@@ -34,11 +34,11 @@ dependencies {
     implementation libs.material
     implementation libs.core.ktx
     implementation libs.preference
+    implementation libs.navigation.fragment
+    implementation libs.navigation.ui
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
-    def splashScreenVersion = "1.0.0-alpha01"
-    // Use: def instead of val if you are not using Kotlin Gradle(.kts)
 
-    implementation("androidx.core:core-splashscreen:1.0.1")
+    implementation libs.core.splashscreen
 }

@@ -3,9 +3,7 @@ package com.developersunit.spot_it_hackfes2k25;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
-
-
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
 public class MainActivity extends Activity{
@@ -14,21 +12,20 @@ public class MainActivity extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activitymain);
 
-        //Intent intent = new Intent(MainActivity.this, History.class);
-       // startActivity(intent);
-        Button history_button = findViewById(R.id.nextbutton);
-        history_button.setOnClickListener(v -> {
-            Intent intent2 = new Intent(MainActivity.this, History.class);
-            startActivity(intent2);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            if (item.getItemId() == R.id.nav_home) {
+                startActivity(new Intent(MainActivity.this, MainActivity.class));
+                return true;
+            } else if (item.getItemId() == R.id.nav_history) {
+                startActivity(new Intent(MainActivity.this, History.class));
+                return true;
+            } else if (item.getItemId() == R.id.nav_settings) {
+                startActivity(new Intent(MainActivity.this, Settings.class));
+                return true;
+            }
+            return false;
         });
-
-        Button settings_button = findViewById(R.id.settingsbutton);
-        settings_button.setOnClickListener(v -> {
-            Intent intent1 = new Intent(MainActivity.this, Settings.class);
-            startActivity(intent1);
-        });
-
-
-
     }
 }
