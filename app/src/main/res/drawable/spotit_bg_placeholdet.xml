@@ -1,0 +1,34 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:width="100dp"
+    android:height="100dp"
+    android:viewportWidth="200"
+    android:viewportHeight="100">
+
+    <!-- Background Gradient (Optional) -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M0,0h200v100h-200z"/>
+
+    <!-- "Spot" Text -->
+    <group
+        android:translateX="55"
+        android:translateY="20">
+        <path
+            android:fillColor="@color/spot_text_color"
+            android:strokeWidth="2"
+            android:strokeColor="@color/spot_text_stroke"
+            android:pathData="M10,30 Q20,10 40,30 T70,30"/>
+    </group>
+
+<!--    &lt;!&ndash; "it" Text &ndash;&gt;-->
+<!--    <group-->
+<!--        android:translateX="120"-->
+<!--        android:translateY="50">-->
+<!--        <path-->
+<!--            android:fillColor="@color/it_text_color"-->
+<!--            android:strokeWidth="2"-->
+<!--            android:strokeColor="@color/it_text_stroke"-->
+<!--            android:pathData="M0,30 L0,10 M15,10 L15,30"/>-->
+<!--    </group>-->
+</vector>
