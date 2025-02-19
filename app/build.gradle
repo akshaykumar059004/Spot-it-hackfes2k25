@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace 'com.developersunit.spot_it_hackfes2k25'
-    compileSdk 34
+    compileSdk 35
 
     defaultConfig {
         applicationId "com.developersunit.spot_it_hackfes2k25"
@@ -32,6 +32,8 @@ dependencies {
 
     implementation libs.appcompat
     implementation libs.material
+    implementation libs.activity
+    implementation libs.constraintlayout
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
