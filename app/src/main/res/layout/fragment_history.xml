@@ -5,10 +5,20 @@
     android:layout_height="match_parent"
     tools:context=".HistoryFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <!-- Empty State Text (Only visible if no data is present) -->
     <TextView
+        android:id="@+id/empty_text"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/History_fragment" />
+        android:layout_height="wrap_content"
+        android:text="No history available"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:visibility="gone"/>
+
+    <!-- Search History RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </FrameLayout>

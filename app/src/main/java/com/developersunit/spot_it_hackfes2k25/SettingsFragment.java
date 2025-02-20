@@ -1,7 +1,5 @@
 package com.developersunit.spot_it_hackfes2k25;
 
-import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.net.Uri;
@@ -16,8 +14,6 @@ import android.widget.ToggleButton;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import android.accessibilityservice.AccessibilityService;
-import android.content.pm.PackageManager;
 import android.provider.Settings.Secure;
 
 public class SettingsFragment extends Fragment {
