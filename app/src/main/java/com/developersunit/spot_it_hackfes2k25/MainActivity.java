@@ -1,6 +1,9 @@
 package com.developersunit.spot_it_hackfes2k25;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.window.SplashScreen;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -8,6 +11,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
 public class MainActivity extends AppCompatActivity{
+    int DRAW_REQUEST_CODE=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,5 +32,14 @@ public class MainActivity extends AppCompatActivity{
             }
             return true;
         });
+        if(!Settings.canDrawOverlays(this))
+        {
+            Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
+            startActivityForResult(intent, DRAW_REQUEST_CODE);
+        }
+        else if(Settings.canDrawOverlays(this)){
+            Intent intent=new Intent(this, ButtonService.class);
+            startService(intent);
+        }
     }
 }

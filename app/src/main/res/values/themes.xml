@@ -6,6 +6,8 @@
         <item name="windowSplashScreenAnimatedIcon">@drawable/spotit_bg_placeholdet</item>
         <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
         <!-- Primary brand color. -->
+        <item name="colorSurface">@color/white</item>
+        <item name="colorSurfaceVariant">#000000</item>
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>

@@ -5,6 +5,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white"
+        app:title="Spot It"
+        android:elevation="4sp"
+        app:titleTextColor="#5FFFC8"/>
+
+
     <!-- Fragment Container -->
     <FrameLayout
         android:id="@+id/fragment_container"
