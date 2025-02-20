@@ -2,4 +2,5 @@
 <resources>
     <string name="welcome_to_spot_it">Welcome to Spot it!</string>
     <string name="this_is_the_second_page">This is the Second Page</string>
+    <string name="searchbar_hint">search here...</string>
 </resources>
