@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-
-</androidx.preference.PreferenceScreen>
+<accessibility-service
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:packageNames="com.dakshin.button"
+    android:accessibilityFeedbackType="feedbackGeneric"
+    android:notificationTimeout="100"
+    android:canRetrieveWindowContent="true"/>

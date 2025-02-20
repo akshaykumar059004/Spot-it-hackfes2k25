@@ -13,8 +13,6 @@
         app:title="Spot It"
         android:elevation="4sp"
         app:titleTextColor="#5FFFC8"/>
-
-
     <!-- Fragment Container -->
     <FrameLayout
         android:id="@+id/fragment_container"
