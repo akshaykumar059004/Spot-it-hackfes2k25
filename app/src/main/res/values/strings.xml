@@ -4,4 +4,8 @@
     <string name="this_is_the_second_page">This is the Second Page</string>
     <string name="next">Next</string>
     <string name="settings">Settings</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="Home_fragment">Home Fragment</string>
+    <string name="History_fragment">History Fragment</string>
+    <string name="Settings_fragment">Settings Fragment</string>
 </resources>
