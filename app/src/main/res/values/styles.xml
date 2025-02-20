@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ToolbarTitleStyle">
+        <!-- Custom Font -->
+        <item name="android:textStyle">bold</item>  <!-- Makes text bold -->
+        <item name="android:textSize">20sp</item>  <!-- Adjust size -->
+    </style>
+</resources>
