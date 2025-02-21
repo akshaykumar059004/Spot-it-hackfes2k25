@@ -3,35 +3,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:gravity="top">
 
     <!-- Language Option -->
     <TextView
         android:id="@+id/language_option"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.2"
-        android:paddingLeft="12dp"
+        android:padding="12dp"
         android:text="Language"
         android:textSize="18sp"
         android:gravity="center_vertical"
         android:clickable="true"
         android:focusable="true"
-        android:background="?attr/selectableItemBackground" />
+        android:background="?attr/selectableItemBackground"
+        android:layout_marginBottom="16dp" />
 
     <!-- Dark Mode Toggle -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.4"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:padding="12dp">
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="0dp"
+        android:layout_marginBottom="16dp">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.25"
+            android:layout_weight="1"
             android:text="Dark Mode"
             android:textSize="18sp"/>
 
@@ -44,16 +46,17 @@
     <!-- Floating Button Toggle -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.4"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:padding="12dp">
+        android:paddingVertical="0dp"
+        android:paddingHorizontal="12dp"
+        android:layout_marginBottom="16dp">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.25"
+            android:layout_weight="1"
             android:text="Floating Button"
             android:textSize="18sp"/>
 
@@ -67,42 +70,41 @@
     <TextView
         android:id="@+id/help_center"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.4"
+        android:layout_height="wrap_content"
         android:padding="12dp"
         android:text="Help Center"
         android:textSize="18sp"
         android:gravity="center_vertical"
         android:clickable="true"
         android:focusable="true"
-        android:background="?attr/selectableItemBackground" />
+        android:background="?attr/selectableItemBackground"
+        android:layout_marginBottom="16dp"/>
 
     <!-- Privacy Policy -->
     <TextView
         android:id="@+id/privacy_policy"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.4"
+        android:layout_height="wrap_content"
         android:padding="12dp"
         android:text="Privacy Policy"
         android:textSize="18sp"
         android:gravity="center_vertical"
         android:clickable="true"
         android:focusable="true"
-        android:background="?attr/selectableItemBackground" />
+        android:background="?attr/selectableItemBackground"
+        android:layout_marginBottom="16dp"/>
 
     <!-- About Application -->
     <TextView
         android:id="@+id/about_app"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.4"
+        android:layout_height="wrap_content"
         android:padding="12dp"
         android:text="About Application"
         android:textSize="18sp"
         android:gravity="center_vertical"
         android:clickable="true"
         android:focusable="true"
-        android:background="?attr/selectableItemBackground" />
-
+        android:background="?attr/selectableItemBackground"
+        android:layout_marginBottom="16dp"/>
 </LinearLayout>
