@@ -7,27 +7,19 @@
     tools:context=".HomeFragment">
 
     <!-- TODO: Update blank fragment layout -->
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:iconifiedByDefault="false"
+        android:queryHint="Search here..." />
     <TextView
+        android:id="@+id/resultText"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/Home_fragment" />
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <com.google.android.material.search.SearchBar
-            android:id="@+id/search_bar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:navigationIcon="@drawable/search_icon"
-            android:hint="@string/searchbar_hint" />
-    </com.google.android.material.appbar.AppBarLayout>
-    <com.google.android.material.search.SearchView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:hint="@string/searchbar_hint"
-        app:layout_anchor="@id/search_bar">
+        android:layout_height="wrap_content"
+        android:layout_margin="50dp"
+        android:padding="10dp"
+        android:textSize="16sp"/>
 
-        <!-- Search suggestions/results go here (ScrollView, RecyclerView, etc.). -->
-
-    </com.google.android.material.search.SearchView>
 </FrameLayout>
