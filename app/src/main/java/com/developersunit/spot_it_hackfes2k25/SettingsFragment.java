@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-import android.widget.ToggleButton;
+import com.google.android.material.switchmaterial.SwitchMaterial;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -18,7 +18,7 @@ import android.provider.Settings.Secure;
 
 public class SettingsFragment extends Fragment {
 
-    private ToggleButton toggleButton;
+    private SwitchMaterial toggleButton;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -29,7 +29,7 @@ public class SettingsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        toggleButton = view.findViewById(R.id.toggleButton);
+        toggleButton = view.findViewById(R.id.toggle_button);
 
         if (toggleButton != null) {
             toggleButton.setChecked(isOverlayPermissionGranted() && isAccessibilityServiceEnabled());

@@ -1,64 +1,110 @@
 package com.developersunit.spot_it_hackfes2k25;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
-
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link HomeFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class HomeFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private SearchView searchView;
+    private TextView resultText;
 
     public HomeFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment HomeFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static HomeFragment newInstance(String param1, String param2) {
-        HomeFragment fragment = new HomeFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
+    @Nullable
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+
+        searchView = view.findViewById(R.id.search_view);
+        resultText = view.findViewById(R.id.resultText);
+
+        // Set listener for SearchView
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                if (!query.isEmpty()) {
+                    new FetchWordDefinition().execute(query);
+                }
+                return true; // Consume event (prevents duplicate actions)
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false; // We only fetch data when the user submits
+            }
+        });
+
+        return view;
+    }
+
+    private class FetchWordDefinition extends AsyncTask<String, Void, String> {
+        @Override
+        protected String doInBackground(String... params) {
+            String word = params[0];
+            String apiUrl = "https://api.dictionaryapi.dev/api/v2/entries/en/" + word;
+
+            try {
+                URL url = new URL(apiUrl);
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setRequestMethod("GET");
+
+                BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                StringBuilder result = new StringBuilder();
+                String line;
+
+                while ((line = reader.readLine()) != null) {
+                    result.append(line);
+                }
+                reader.close();
+                return result.toString();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            if (result != null) {
+                try {
+                    JSONArray jsonArray = new JSONArray(result);
+                    JSONObject firstEntry = jsonArray.getJSONObject(0);
+                    JSONArray meanings = firstEntry.getJSONArray("meanings");
+
+                    StringBuilder definition = new StringBuilder();
+                    for (int i = 0; i < meanings.length(); i++) {
+                        JSONObject meaning = meanings.getJSONObject(i);
+                        JSONArray definitions = meaning.getJSONArray("definitions");
+                        definition.append("• ").append(definitions.getJSONObject(0).getString("definition")).append("\n\n");
+                    }
+
+                    resultText.setText(definition.toString());
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    resultText.setText("Error parsing data.");
+                }
+            } else {
+                resultText.setText("Word not found.");
+            }
+        }
     }
 }
